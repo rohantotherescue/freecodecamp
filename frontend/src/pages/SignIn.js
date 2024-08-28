@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Cookies from 'js-cookie';
 // import { GoogleOAuthProvider } from '@react-oauth/google';
+import googleLogo from '../assets/images/google-logo.png';
 
 const SignIn = () => {
   const [email_id, setEmail] = useState('');
@@ -40,11 +41,12 @@ const SignIn = () => {
   };
 
 return (
-      <div className="container mt-5">
+  <div className="container">
+      <div className="form-container">
         <h1>Sign In</h1>
         <form onSubmit={handleSubmit}>
           <div className="form-group">
-            <label>Email address</label>
+            <label>Email</label>
             <input
               type="email"
               className="form-control"
@@ -63,14 +65,22 @@ return (
               required
             />
           </div>
-          <button type="submit" className="btn btn-primary">
+          <button className="submit-button" type="submit">
             Sign In
           </button>
         </form>
         <hr />
         <a href="http://localhost:5000/api/auth/google">
-  <button>Sign In with Google</button>
+  <button className="google-sign-in">
+        <img
+              src={googleLogo} // Use the imported image
+              alt="Google logo"
+              className="google-logo"
+            />
+    Sign In with Google
+    </button>
 </a>
+      </div>
       </div>
   );
 

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Cookies from 'js-cookie';
+import '../App.css'; 
 
 const Courses = () => {
     console.log("in courses")
@@ -52,13 +53,22 @@ const Courses = () => {
   }, [navigate]); //token,
 
   return (
-    <div className="container mt-5">
-      <h1>Courses</h1>
+    <div className="courses-container">
+      <h1 className="welcome-message">Welcome to FreeCodeCamp! Excited to learn something new today?</h1>
       {courses.length > 0 ? (
-        <ul className="list-group">
+        <ul className="courses-list">
           {courses.map((course, index) => (
-            <li key={index} className="list-group-item">
-              {course.name} {/* Display course details here */}
+            <li key={index} className="courses-list-item">
+              {/* {course.name} */}
+              <h2 className="course-name">{course.name}</h2>
+              <div className="course-details">
+              <p className="course-detail">
+                <strong>Instructor:</strong> {course.instructor}
+              </p>
+              <p className="course-detail">
+                <strong>Duration:</strong> {course.duration} hours
+              </p>
+              </div>
             </li>
           ))}
         </ul>
