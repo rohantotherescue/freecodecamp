@@ -3,7 +3,7 @@ import { Link , useLocation } from 'react-router-dom';
 import Logout from './Logout';
 import '../App.css'; 
 
-const NavBar = () => {
+const Navbar = () => {
   const location = useLocation();
   return (
     <nav className="navbar">
@@ -28,4 +28,4 @@ const NavBar = () => {
   );
 };
 
-export default NavBar;
+export default Navbar;

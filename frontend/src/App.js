@@ -5,13 +5,13 @@ import Register from './pages/Register';
 import SignIn from './pages/SignIn';
 import Courses from './pages/Courses';
 import PrivateRoute from './components/PrivateRoute';
-import NavBar from './components/NavBar';
+import Navbar from './components/Navbar';
 
 function App() {
   return (
     <Router>
       <div>
-        <NavBar />
+        <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/register" element={<Register />} />
