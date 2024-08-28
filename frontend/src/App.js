@@ -1,11 +1,11 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import Register from './pages/Register';
 import SignIn from './pages/SignIn';
 import Courses from './pages/Courses';
 import PrivateRoute from './components/PrivateRoute';
+import Navbar from './components/NavBar';
 
 function App() {
   return (

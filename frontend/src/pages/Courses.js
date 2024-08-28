@@ -7,15 +7,11 @@ const Courses = () => {
     console.log("in courses")
   const [courses, setCourses] = useState([]);
   const navigate = useNavigate();
-//   const location = useLocation();
-//   const token = location.state?.token;
 
   useEffect(() => {
     const token = Cookies.get('jwtToken');
-    // console.log('Cookie get:', Cookies.get('jwtToken'));
     if (!token) {
       // If no token is provided, redirect to sign-in page
-      console.log("token is null here");
       navigate('/sign-in');
       return;
     }
@@ -29,9 +25,6 @@ const Courses = () => {
             credentials: 'include'
           },
         });
-
-        console.log("response came \n");
-        console.log(response);
         if (response.status === 200) {
           const data = await response.json();
           setCourses(data); 
@@ -39,8 +32,6 @@ const Courses = () => {
             // If token is invalid or expired, redirect to sign-in page
             navigate('/sign-in');
         } else {
-
-          console.error('Failed to fetch courses.');
           window.alert('Failed to fetch courses.');
         }
       } catch (error) {
@@ -59,7 +50,6 @@ const Courses = () => {
         <ul className="courses-list">
           {courses.map((course, index) => (
             <li key={index} className="courses-list-item">
-              {/* {course.name} */}
               <h2 className="course-name">{course.name}</h2>
               <div className="course-details">
               <p className="course-detail">

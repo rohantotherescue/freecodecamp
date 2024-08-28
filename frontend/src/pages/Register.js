@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-// import { GoogleOAuthProvider, GoogleLogin } from '@react-oauth/google';
-// import Cookies from 'js-cookie';
 import googleLogo from '../assets/images/google-logo.png';
 
 const Register = () => {

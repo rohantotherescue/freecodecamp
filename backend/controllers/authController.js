@@ -4,7 +4,6 @@ const jwt = require('jsonwebtoken');
 
 exports.signup = async (req, res) => {
   const { name, email_id, password } = req.body;
-  console.log(req.body);
   try {
     let user = await User.findOne({ email_id });
     if (user) {
@@ -27,10 +26,7 @@ exports.signup = async (req, res) => {
 exports.login = async (req, res) => {
   const { email_id, password } = req.body;
   try {
-    console.log("sneed")
-    console.log(req.body);
     const user = await User.findOne({ email_id });
-    console.log("\n",user);
     if (!user) {
       return res.status(400).json({ message: 'Invalid email or password' });
     }
@@ -40,8 +36,7 @@ exports.login = async (req, res) => {
       return res.status(400).json({ message: 'Invalid email or password' });
     }
 
-    const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, { expiresIn: '10s' }); //TODO change this to 1h
-    console.log('Generated Token:', token); // Log token for debugging
+    const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, { expiresIn: '1h' }); 
     res.json({ token });
   } catch (err) {
     res.status(500).json({ message: 'Server error' });

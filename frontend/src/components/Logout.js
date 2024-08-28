@@ -8,14 +8,11 @@ const Logout = () => {
   const handleLogout = () => {
     // Remove the jwtToken cookie
     Cookies.remove('jwtToken');
-
-    // Redirect to the sign-in page
     navigate('/sign-in');
   };
 
   return (
-    <button onClick={handleLogout} className="logout-btn" > 
-    {/* className="logout-btn" */}
+    <button onClick={handleLogout} className="logout-btn" >
       Logout
     </button>
   );

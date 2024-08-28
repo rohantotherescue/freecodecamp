@@ -8,9 +8,7 @@ const authMiddleware = (req, res, next) => {
   if (!authHeader) {
     return res.status(401).json({ message: 'Access denied, no token provided.' });
   }
-  console.log(authHeader);
 
-  // Check if the header starts with 'Bearer ' (case-sensitive)
   if (!authHeader.startsWith('Bearer ')) {
     return res.status(400).json({ message: 'Invalid token format.' });
   }
@@ -18,8 +16,6 @@ const authMiddleware = (req, res, next) => {
   // Correctly extract the token after 'Bearer '
   const token = authHeader.split(' ')[1];
    
-  console.log('Extracted Token:', token); // Log the extracted token for debugging
-
   if (!token) {
     return res.status(401).json({ message: 'Access denied, token missing.' });
   }

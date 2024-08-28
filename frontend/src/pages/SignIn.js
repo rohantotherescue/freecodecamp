@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Cookies from 'js-cookie';
-// import { GoogleOAuthProvider } from '@react-oauth/google';
 import googleLogo from '../assets/images/google-logo.png';
 
 const SignIn = () => {
@@ -29,7 +28,7 @@ const SignIn = () => {
         Cookies.set('jwtToken', token, { expires: 7 });
         console.log('Cookie set:', Cookies.get('jwtToken'));
         // Redirect to the courses page with the token
-        await navigate('/courses');//, { state: { token } });
+        await navigate('/courses');
         console.log("after redirection to courses");
       } else {
         window.alert('Login Failed');

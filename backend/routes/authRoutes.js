@@ -20,10 +20,8 @@ router.get(
       const token = jwt.sign({ id: req.user._id }, process.env.JWT_SECRET, { expiresIn: '1h' });
   
       // Send token back as a response or set it in a cookie
-    //   res.cookie('jwtToken', token, { httpOnly: true });
     res.cookie('jwtToken', token, {
         path: '/',  // Makes the cookie available site-wide
-        // httpOnly: true,
         secure: false,
         sameSite: 'Lax',
         expires: new Date(Date.now() + 1 * 60 * 60 * 1000),
