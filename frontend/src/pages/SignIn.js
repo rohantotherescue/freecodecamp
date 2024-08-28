@@ -12,7 +12,7 @@ const SignIn = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch('http://localhost:5000/api/login', {
+      const response = await fetch(`${process.env.REACT_APP_BACKEND_BASEURL}/api/login`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -38,6 +38,7 @@ const SignIn = () => {
       window.alert('An error occurred. Please try again later.');
     }
   };
+  console.log(process.env.REACT_APP_BACKEND_BASEURL);
 
 return (
   <div className="container">
@@ -69,7 +70,7 @@ return (
           </button>
         </form>
         <hr />
-        <a href="http://localhost:5000/api/auth/google">
+        <a href={`${process.env.REACT_APP_BACKEND_BASEURL}/api/auth/google`}>
   <button className="google-sign-in">
         <img
               src={googleLogo} // Use the imported image

@@ -13,7 +13,7 @@ const Register = () => {
 
     try {
       // Make the API call to register the user
-      const response = await fetch('http://localhost:5000/api/signup', {
+      const response = await fetch(`${process.env.REACT_APP_BACKEND_BASEURL}/api/signup`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -75,7 +75,7 @@ const Register = () => {
           </button>
         </form>
         <hr />
-        <a href="http://localhost:5000/api/auth/google">
+        <a href={`${process.env.REACT_APP_BACKEND_BASEURL}/api/auth/google`}>
   <button className="google-sign-in">
   <img   src={googleLogo} // Use the imported image
               alt="Google logo"
