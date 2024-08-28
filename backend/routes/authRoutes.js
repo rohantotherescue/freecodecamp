@@ -13,7 +13,7 @@ router.get('/auth/google', passport.authenticate('google', { scope: ['profile', 
 router.get(
     '/auth/google/callback',
     passport.authenticate('google', { 
-        failureRedirect: 'http://localhost:3000/sign-in', 
+        failureRedirect: `${process.env.FRONTEND_APP_BASEURL}/sign-in`, 
         session: false }),
     (req, res) => {
       // Successful authentication, generate a token
@@ -26,9 +26,7 @@ router.get(
         sameSite: 'Lax',
         expires: new Date(Date.now() + 1 * 60 * 60 * 1000),
       });
-      console.log("token from google:", token);
-      res.redirect('http://localhost:3000/courses'); // Redirect to the courses page
-      
+      res.redirect(`${process.env.FRONTEND_APP_BASEURL}/courses`); // Redirect to the courses page
     }    
   );
 module.exports = router;
