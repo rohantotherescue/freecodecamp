@@ -13,6 +13,7 @@ const Register = () => {
 
     try {
       // Make the API call to register the user
+      console.log(process.env.REACT_APP_BACKEND_BASEURL);
       const response = await fetch(`${process.env.REACT_APP_BACKEND_BASEURL}/api/signup`, {
         method: 'POST',
         headers: {
