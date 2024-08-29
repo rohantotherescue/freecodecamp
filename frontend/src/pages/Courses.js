@@ -63,7 +63,7 @@ const Courses = () => {
           ))}
         </ul>
       ) : (
-        <p>No courses available.</p>
+        <p></p>
       )}
     </div>
   );
