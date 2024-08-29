@@ -28,8 +28,7 @@ app.use('/api/courses', courseRoutes);
 mongoose.connect(process.env.MONGO_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
-  serverSelectionTimeoutMS: 30000,
-  poolSize: 10
+  serverSelectionTimeoutMS: 30000
 })
   .then(() => console.log('MongoDB Connected'))
   .catch(err => console.error(err));

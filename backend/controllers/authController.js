@@ -5,7 +5,7 @@ const jwt = require('jsonwebtoken');
 exports.signup = async (req, res) => {
   const { name, email_id, password } = req.body;
   try {
-    let user = await User.findOne({ email_id });
+    let user = await User.findOne({ email_id: email_id });
     if (user) {
       return res.status(400).json({ message: 'Email id already exists' });
     }
@@ -26,7 +26,7 @@ exports.signup = async (req, res) => {
 exports.login = async (req, res) => {
   const { email_id, password } = req.body;
   try {
-    const user = await User.findOne({ email_id });
+    const user = await User.findOne({ email_id: email_id });
     if (!user) {
       return res.status(400).json({ message: 'Invalid email or password' });
     }

@@ -14,24 +14,19 @@ router.get(
     '/auth/google/callback',
     passport.authenticate('google', { 
         failureRedirect: `${process.env.FRONTEND_APP_BASEURL}/sign-in`, 
-        // successRedirect: `${process.env.FRONTEND_APP_BASEURL}/courses`,
         session: false }),
     (req, res) => {
       // Successful authentication, generate a token
       try{
       console.log("under authentication");
       const token = jwt.sign({ id: req.user._id }, process.env.JWT_SECRET, { expiresIn: '1h' });
-      console.log(token);
       // Send token back as a response or set it in a cookie
     res.cookie('jwtToken', token, {
         path: '/',  // Makes the cookie available site-wide
-        secure: process.env.NODE_ENV === 'production',
+        secure: true,
         sameSite: 'Lax',
-        // httpOnly: true, 
         expires: new Date(Date.now() + 1 * 60 * 60 * 1000),
       });
-      console.log("going inside courses");
-      console.log(`${process.env.FRONTEND_APP_BASEURL}/courses`);
       res.redirect(`${process.env.FRONTEND_APP_BASEURL}/courses`); // Redirect to the courses page
     }
     catch (error) {
