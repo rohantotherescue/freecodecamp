@@ -17,6 +17,7 @@ router.get(
         session: false }),
     (req, res) => {
       // Successful authentication, generate a token
+      try{
       console.log("under authentication");
       const token = jwt.sign({ id: req.user._id }, process.env.JWT_SECRET, { expiresIn: '1h' });
   
@@ -28,6 +29,10 @@ router.get(
         expires: new Date(Date.now() + 1 * 60 * 60 * 1000),
       });
       res.redirect(`${process.env.FRONTEND_APP_BASEURL}/courses`); // Redirect to the courses page
+    }
+    catch (error) {
+      console.error('Error eeee:', error.message);
+    }
     }    
   );
 module.exports = router;
