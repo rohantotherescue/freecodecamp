@@ -29,6 +29,7 @@ router.get(
         expires: new Date(Date.now() + 1 * 60 * 60 * 1000),
       });
       console.log("going inside courses");
+      console.log(`${process.env.FRONTEND_APP_BASEURL}/courses`);
       res.redirect(`${process.env.FRONTEND_APP_BASEURL}/courses`); // Redirect to the courses page
     }
     catch (error) {
