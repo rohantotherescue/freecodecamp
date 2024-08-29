@@ -11,6 +11,7 @@ const Courses = () => {
   useEffect(() => {
     const token = Cookies.get('jwtToken');
     if (!token) {
+      console.log("token is null")
       // If no token is provided, redirect to sign-in page
       navigate('/sign-in');
       return;
