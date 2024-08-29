@@ -71,6 +71,7 @@ return (
         </form>
         <hr />
         <a href={`${process.env.REACT_APP_BACKEND_BASEURL}/api/auth/google`}>
+        {console.log("going to authenticate")}
   <button className="google-sign-in">
         <img
               src={googleLogo} // Use the imported image

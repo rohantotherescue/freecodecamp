@@ -17,6 +17,7 @@ router.get(
         session: false }),
     (req, res) => {
       // Successful authentication, generate a token
+      console.log("under authentication");
       const token = jwt.sign({ id: req.user._id }, process.env.JWT_SECRET, { expiresIn: '1h' });
   
       // Send token back as a response or set it in a cookie
