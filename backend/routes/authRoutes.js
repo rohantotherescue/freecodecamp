@@ -13,7 +13,7 @@ router.get('/auth/google', passport.authenticate('google', { scope: ['profile', 
 router.get(
     '/auth/google/callback',
     passport.authenticate('google', { 
-        failureRedirect: `${process.env.FRONTEND_APP_BASEURL}/sign-in`, 
+        failureRedirect: `${process.env.FRONTEND_APP_BASEURL}/courses`, 
         session: false }),
     (req, res) => {
       // Successful authentication, generate a token
