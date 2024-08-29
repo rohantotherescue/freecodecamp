@@ -24,8 +24,9 @@ router.get(
       // Send token back as a response or set it in a cookie
     res.cookie('jwtToken', token, {
         path: '/',  // Makes the cookie available site-wide
-        secure: false,
+        secure: process.env.NODE_ENV === 'production',
         sameSite: 'Lax',
+        httpOnly: true, 
         expires: new Date(Date.now() + 1 * 60 * 60 * 1000),
       });
       console.log("going inside courses");
