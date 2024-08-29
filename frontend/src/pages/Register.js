@@ -13,6 +13,7 @@ const Register = () => {
 
     try {
       // Make the API call to register the user
+      console.log("this is the redirect url:")
       console.log(process.env.REACT_APP_BACKEND_BASEURL);
       const response = await fetch(`${process.env.REACT_APP_BACKEND_BASEURL}/api/signup`, {
         method: 'POST',
@@ -31,7 +32,7 @@ const Register = () => {
         navigate('/sign-in');
       }
     } catch (error) {
-      console.error('Error registering user:', error);
+      console.error('Error registering user:', error.message);
       window.alert('An error occurred. Please try again later.');
     }
   };
