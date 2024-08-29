@@ -32,6 +32,7 @@ router.get(
       console.log("going inside courses");
       console.log(`${process.env.FRONTEND_APP_BASEURL}/courses`);
       res.redirect(`${process.env.FRONTEND_APP_BASEURL}/courses`); // Redirect to the courses page
+      console.log("after redirecting");
     }
     catch (error) {
       console.log('Error eeee:', error.message);
