@@ -20,7 +20,7 @@ router.get(
       try{
       console.log("under authentication");
       const token = jwt.sign({ id: req.user._id }, process.env.JWT_SECRET, { expiresIn: '1h' });
-  
+      console.log(token);
       // Send token back as a response or set it in a cookie
     res.cookie('jwtToken', token, {
         path: '/',  // Makes the cookie available site-wide
@@ -31,7 +31,7 @@ router.get(
       res.redirect(`${process.env.FRONTEND_APP_BASEURL}/courses`); // Redirect to the courses page
     }
     catch (error) {
-      console.error('Error eeee:', error.message);
+      console.log('Error eeee:', error.message);
     }
     }    
   );
