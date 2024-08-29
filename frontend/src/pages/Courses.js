@@ -4,14 +4,12 @@ import Cookies from 'js-cookie';
 import '../App.css'; 
 
 const Courses = () => {
-    console.log("in courses")
   const [courses, setCourses] = useState([]);
   const navigate = useNavigate();
 
   useEffect(() => {
     const token = Cookies.get('jwtToken');
     if (!token) {
-      console.log("token is null")
       // If no token is provided, redirect to sign-in page
       navigate('/sign-in');
       return;
@@ -42,7 +40,7 @@ const Courses = () => {
     };
 
     fetchCourses();
-  }, [navigate]); //token,
+  }, [navigate]);
 
   return (
     <div className="courses-container">

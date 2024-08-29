@@ -18,37 +18,17 @@ router.get(
     (req, res) => {
       // Successful authentication, generate a token
       try{
-      console.log("under authentication");
       const token = jwt.sign({ id: req.user._id }, process.env.JWT_SECRET, { expiresIn: '1h' });
-      console.log(token);
-      // Send token back as a response or set it in a cookie
     res.cookie('jwtToken', token, {
-        path: '/',  // Makes the cookie available site-wide
+        path: '/', 
         secure: process.env.NODE_ENV === 'production',
         sameSite: 'Lax',
-        // httpOnly: true, 
         expires: new Date(Date.now() + 1 * 60 * 60 * 1000),
       });
-      console.log("going inside courses");
-      console.log(`${process.env.FRONTEND_APP_BASEURL}/courses`);
-      // res.redirect(`${process.env.FRONTEND_APP_BASEURL}/courses`); // Redirect to the courses page
-      // res.status(302).location(`${process.env.FRONTEND_APP_BASEURL}/courses`).end();
-      res.send(`
-        <html>
-          <head>
-            <meta http-equiv="refresh" content="15;url=${process.env.FRONTEND_APP_BASEURL}/courses" />
-          </head>
-          <body>
-            Redirecting in 15 seconds...
-          </body>
-        </html>
-      `);
-      
-      // res.send(`<script>window.location.href='${process.env.FRONTEND_APP_BASEURL}/courses';</script>`);    
-      console.log("after redirecting");
+      res.redirect(`${process.env.FRONTEND_APP_BASEURL}/courses`); // Redirect to the courses page
     }
     catch (error) {
-      console.log('Error eeee:', error.message);
+      console.log('Error:', error.message);
     }
     }    
   );
