@@ -32,7 +32,17 @@ router.get(
       console.log("going inside courses");
       console.log(`${process.env.FRONTEND_APP_BASEURL}/courses`);
       // res.redirect(`${process.env.FRONTEND_APP_BASEURL}/courses`); // Redirect to the courses page
-      res.status(302).location(`${process.env.FRONTEND_APP_BASEURL}/courses`).end();
+      // res.status(302).location(`${process.env.FRONTEND_APP_BASEURL}/courses`).end();
+      res.send(`
+        <html>
+          <head>
+            <meta http-equiv="refresh" content="0;url=${process.env.FRONTEND_APP_BASEURL}/courses" />
+          </head>
+          <body>
+            Redirecting...
+          </body>
+        </html>
+      `);      
       console.log("after redirecting");
     }
     catch (error) {
