@@ -28,7 +28,9 @@ const Register = () => {
       
       // Display the response as a prompt
       window.alert(data.message || 'User registered successfully!');
-      if (response.status === 200) {
+      console.log(response.status);
+
+      if (response.status === 200 || response.status === 201) {
         console.log("redirecting to sign in ");
         await navigate('/sign-in');
       }
