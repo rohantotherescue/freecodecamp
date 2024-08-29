@@ -36,13 +36,14 @@ router.get(
       res.send(`
         <html>
           <head>
-            <meta http-equiv="refresh" content="0;url=${process.env.FRONTEND_APP_BASEURL}/courses" />
+            <meta http-equiv="refresh" content="15;url=${process.env.FRONTEND_APP_BASEURL}/courses" />
           </head>
           <body>
-            Redirecting...
+            Redirecting in 15 seconds...
           </body>
         </html>
-      `);  
+      `);
+      
       // res.send(`<script>window.location.href='${process.env.FRONTEND_APP_BASEURL}/courses';</script>`);    
       console.log("after redirecting");
     }
