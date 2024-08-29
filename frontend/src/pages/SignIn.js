@@ -19,7 +19,7 @@ const SignIn = () => {
         },
         body: JSON.stringify({ email_id, password }),
       });
-
+        Cookies.remove('jwtToken');
       if (response.status === 200) {
         const data = await response.json();
         const token = data.token;
