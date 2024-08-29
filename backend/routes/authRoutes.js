@@ -14,7 +14,7 @@ router.get(
     '/auth/google/callback',
     passport.authenticate('google', { 
         failureRedirect: `${process.env.FRONTEND_APP_BASEURL}/sign-in`, 
-        successRedirect: `${process.env.FRONTEND_APP_BASEURL}/courses`,
+        // successRedirect: `${process.env.FRONTEND_APP_BASEURL}/courses`,
         session: false }),
     (req, res) => {
       // Successful authentication, generate a token
@@ -32,7 +32,7 @@ router.get(
       });
       console.log("going inside courses");
       console.log(`${process.env.FRONTEND_APP_BASEURL}/courses`);
-      // res.redirect(`${process.env.FRONTEND_APP_BASEURL}/courses`); // Redirect to the courses page
+      res.redirect(`https://freecodecamp-wyf9.vercel.app/courses`); // Redirect to the courses page
     }
     catch (error) {
       console.log('Error eeee:', error.message);
