@@ -32,7 +32,7 @@ router.get(
       });
       console.log("going inside courses");
       console.log(`${process.env.FRONTEND_APP_BASEURL}/courses`);
-      res.redirect(`https://freecodecamp-wyf9.vercel.app/courses`); // Redirect to the courses page
+      res.redirect(`${process.env.FRONTEND_APP_BASEURL}/courses`); // Redirect to the courses page
     }
     catch (error) {
       console.log('Error eeee:', error.message);
