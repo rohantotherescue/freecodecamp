@@ -14,7 +14,7 @@
     ],
     "functions": {
     "./**/*": {
-      "maxDuration": 500 
+      "maxDuration": 50
     }
 }
 }
