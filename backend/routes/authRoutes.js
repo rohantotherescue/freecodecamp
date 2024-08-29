@@ -14,6 +14,7 @@ router.get(
     '/auth/google/callback',
     passport.authenticate('google', { 
         failureRedirect: `${process.env.FRONTEND_APP_BASEURL}/sign-in`, 
+        successRedirect: `${process.env.FRONTEND_APP_BASEURL}/courses`,
         session: false }),
     (req, res) => {
       // Successful authentication, generate a token
@@ -26,12 +27,12 @@ router.get(
         path: '/',  // Makes the cookie available site-wide
         secure: process.env.NODE_ENV === 'production',
         sameSite: 'Lax',
-        httpOnly: true, 
+        // httpOnly: true, 
         expires: new Date(Date.now() + 1 * 60 * 60 * 1000),
       });
       console.log("going inside courses");
       console.log(`${process.env.FRONTEND_APP_BASEURL}/courses`);
-      res.redirect(`${process.env.FRONTEND_APP_BASEURL}/courses`); // Redirect to the courses page
+      // res.redirect(`${process.env.FRONTEND_APP_BASEURL}/courses`); // Redirect to the courses page
     }
     catch (error) {
       console.log('Error eeee:', error.message);
